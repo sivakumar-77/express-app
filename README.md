@@ -19,6 +19,9 @@ DB_NAME=postgres
 ```
 run `docker compose up` to run the PostgreSQL container
 
+# Create Tables 
+we have only users table, run the SQL script in the `db_script.sql` file.
+
 # Install Packages 
 
 run `npm install` 
