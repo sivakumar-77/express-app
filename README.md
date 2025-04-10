@@ -26,3 +26,8 @@ run `npm install`
 # Start the server 
 
 run `npm start`
+
+# Postman Collection 
+1. User Login 
+2. User register 
+3. User Get Info using User Token

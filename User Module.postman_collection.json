@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "9226ea61-4873-424e-9df2-af45a7b0c267",
+		"name": "User Module",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32540267",
+		"_collection_link": "https://cyh-team.postman.co/workspace/My-WorkSpace~ddfe50d8-1ba8-4366-8f61-7be877c71502/collection/32540267-9226ea61-4873-424e-9df2-af45a7b0c267?action=share&source=collection_link&creator=32540267"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get Info",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
