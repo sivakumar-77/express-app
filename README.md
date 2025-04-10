@@ -30,4 +30,6 @@ run `npm start`
 # Postman Collection 
 1. User Login 
 2. User register 
-3. User Get Info using User Token
+3. User Get Info using User Token 
+    pls add User Token as Bearer Token in Header should be 
+    Authorization: Bearer `<user_token>`
