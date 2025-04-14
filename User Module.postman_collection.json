@@ -10,24 +10,88 @@
 		{
 			"name": "login",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user1@gmail.com\", \n    \"password\": \"pass@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "register",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"email\": \"user1@gmail.com\",\n  \"password\": \"pass@1234\",\n  \"username\": \"user1\",\n  \"role\": \"USER\" // ADMIN or USER\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get Info",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiY3VzZXIiLCJwYXNzd29yZCI6IiQyYiQxMCRmaldaNWp2UnM3ZXlLOWJ3NWY4d1N1UTJQQmg0T1QuZzhBc1p2Mms0TWtKcHdPSkRtOGl4QyIsInJvbGUiOiJVU0VSIiwiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTBUMDg6NTM6MjguODQwWiIsInVwZGF0ZWRfYXQiOm51bGx9LCJpYXQiOjE3NDQ2MzA4ODQsImV4cCI6MTc0NDYzNDQ4NH0.WWjselMI2V-e5GuvjZkoPpO55oKlizl-qhOtvis41_I",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"info"
+					]
+				}
 			},
 			"response": []
 		}

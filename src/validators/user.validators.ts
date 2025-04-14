@@ -19,7 +19,8 @@ const userRegisterValidator = () => {
       .withMessage("Username must be at lease 3 characters long"),
     body("password").trim().notEmpty().withMessage("Password is required"),
     body("role")
-      .optional()
+      .notEmpty()
+      .withMessage("Role is required")
       .isIn(AvailableUserRoles)
       .withMessage("Invalid user role"),
   ];
@@ -27,8 +28,7 @@ const userRegisterValidator = () => {
 
 const userLoginValidator = () => {
   return [
-    body("email").optional().isEmail().withMessage("Email is invalid"),
-    body("username").optional(),
+    body("email").notEmpty().withMessage("Email is required"),
     body("password").notEmpty().withMessage("Password is required"),
   ];
 };
