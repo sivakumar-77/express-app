@@ -20,8 +20,13 @@ app.get('/', (req: Request, res: Response): any => {
 
 
 import userRouter from "./routes/user.route";
+import chatRouter from "./routes/chat.route";
 
 app.use("/user", userRouter);
+app.use("/chat", chatRouter);
+app.use((req: Request, res: Response) => {
+  res.status(404).json({ message: "Not Found" });
+});
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   errorHandler(err, req, res, next);

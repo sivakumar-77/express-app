@@ -73,7 +73,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiY3VzZXIiLCJwYXNzd29yZCI6IiQyYiQxMCRmaldaNWp2UnM3ZXlLOWJ3NWY4d1N1UTJQQmg0T1QuZzhBc1p2Mms0TWtKcHdPSkRtOGl4QyIsInJvbGUiOiJVU0VSIiwiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTBUMDg6NTM6MjguODQwWiIsInVwZGF0ZWRfYXQiOm51bGx9LCJpYXQiOjE3NDQ2MzA4ODQsImV4cCI6MTc0NDYzNDQ4NH0.WWjselMI2V-e5GuvjZkoPpO55oKlizl-qhOtvis41_I",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkZi9JallUZU91cS5uS2lQSTgyOS4wdWJjSjNuMW5TLkczOEh6NnBJclZqNVhyc3cxWFprOWEiLCJyb2xlIjoiVVNFUiIsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA5OjI0OjE3LjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0xNVQwOToyNDoxNy4wMDBaIiwiaWF0IjoxNzQ0NzMxMzk3LCJleHAiOjE3NDQ4MTc3OTd9.dRVqRE1ZjZo_PG8ccBl7Dv1-SppsUJjb3ATgQD71n2g",
 							"type": "string"
 						}
 					]
@@ -90,6 +90,46 @@
 					"path": [
 						"user",
 						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chat Import",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkZi9JallUZU91cS5uS2lQSTgyOS4wdWJjSjNuMW5TLkczOEh6NnBJclZqNVhyc3cxWFprOWEiLCJyb2xlIjoiVVNFUiIsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA5OjI0OjE3LjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0xNVQwOToyNDoxNy4wMDBaIiwiaWF0IjoxNzQ0NzMxMzk3LCJleHAiOjE3NDQ4MTc3OTd9.dRVqRE1ZjZo_PG8ccBl7Dv1-SppsUJjb3ATgQD71n2g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "chatFile",
+							"type": "file",
+							"src": "/Users/sivakumar/Downloads/sample_chat_messages.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/chat/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"chat",
+						"import"
 					]
 				}
 			},

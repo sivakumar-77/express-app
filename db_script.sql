@@ -1,14 +1,27 @@
-create table users (
-    id SERIAL
-    PRIMARY KEY,
-    email varchar(255)
-    UNIQUE NOT NULL,
-    username varchar(255)
-    UNIQUE NOT NULL,
-    password varchar(1000)
-    NOT NULL,
-    role varchar(255) NOT NULL,
-    created_at timestamp
-    updated_at timestamp
-)
+CREATE DATABASE IF NOT EXISTS myapp;
+USE myapp;
 
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(50) DEFAULT 'user',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS chat_messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  chat_id VARCHAR(36) NOT NULL,
+  sender_id INT NOT NULL,
+  receiver_id INT NOT NULL,
+  message TEXT NOT NULL,
+  timestamp DATETIME NOT NULL,
+  message_type ENUM('text') DEFAULT 'text',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+SELECT * FROM chat_messages;

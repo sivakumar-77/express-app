@@ -1,24 +1,37 @@
-import pg from 'pg';
-const { Pool } = pg
- 
-let dbPool: pg.Pool; 
+import mysql from 'mysql2/promise';
 
-export async function getDBClient() {
-  if (!dbPool) {
-    dbPool = new Pool({
-      user: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: 5432,  
-      database: process.env.DB_NAME || 'postgres',
-      max: 5, // max number of clients in the pool
-      application_name: "user_auth_app",
-      connectionTimeoutMillis: 5000, // max 5 seconds to wait connection to be established
-      idleTimeoutMillis: 3000,  // max 3 seconds to keep a client ideally connected
-    });
-    const dbClient = await dbPool.connect();
-    return dbClient;
+const pool = mysql.createPool({
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '3306'),
+  user: process.env.DB_USER || 'user',
+  password: process.env.DB_PASSWORD || 'password',
+  database: process.env.DB_NAME || 'myapp',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+interface PoolConnection extends mysql.PoolConnection {
+  release: () => void;
+  query: mysql.Connection['query'];
+}
+
+export async function getDBClient(): Promise<PoolConnection> {
+  try {
+    const connection = await pool.getConnection();
+    return connection;
+  } catch (error) {
+    console.error('Error getting database connection:', error);
+    throw new Error('Failed to connect to database');
   }
-  const dbClient = await dbPool.connect();
-  return dbClient;
+}
+
+export async function closePool(): Promise<void> {
+  try {
+    await pool.end();
+    console.log('Database connection pool closed');
+  } catch (error) {
+    console.error('Error closing database connection pool:', error);
+    throw error;
+  }
 }
